@@ -57,8 +57,8 @@ jobs:
     - name: Unit Test Cases
       run: mvn test
 
-      build_project_and_sonar_scan:
-    runs-on: self-hosted
+  build_project_and_sonar_scan:
+    runs-on: runner1
     needs: test
     steps:
     - uses: actions/checkout@v4
@@ -70,13 +70,8 @@ jobs:
         cache: maven
     - name: Build Project
       run: mvn package
-    - name: Upload JAR artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: app-jar
-        path: target/*.jar 
-    -name: print path
-     run: pwd
+    - name: print path
+      run: pwd
         
     - uses: actions/checkout@v4
       with:
