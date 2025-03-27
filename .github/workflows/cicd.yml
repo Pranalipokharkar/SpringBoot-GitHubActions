@@ -20,7 +20,7 @@ jobs:
           cache: maven
 
       - name: Install Maven and Compile Code
-        run: run: sudo apt update && sudo apt install maven -y && mvn compile
+        run: sudo apt update && sudo apt install maven -y && mvn compile
 
     
   
