@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 env:
-  WORKSPACE: /home/ubuntu/actions-runner/_work/SpringBoot-GitHubActions
+  WORKSPACE: /home/ubuntu/actions-runner/_work/SpringBoot-GitHubActions/SpringBoot-GitHubActions
 
 jobs:
   compile:
