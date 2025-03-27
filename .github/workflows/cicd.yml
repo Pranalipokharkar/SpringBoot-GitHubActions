@@ -68,10 +68,12 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+    - name: Print workspace before build
+      run: ls -l ${{ github.workspace }}
     - name: Build Project
       run: mvn package
-    - name: print path
-      run: pwd
+    - name: Print workspace after build
+      run: ls -l ${{ github.workspace }}
         
     - uses: actions/checkout@v4
       with:
