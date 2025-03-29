@@ -1,8 +1,9 @@
 name: CICD Pipeline 
 
 on:
-  push:
-    branches: [ "main" ]
+  workflow_dispatch:
+ # push:
+  #  branches: [ "main" ]
 
 jobs:
   compile:
@@ -108,6 +109,8 @@ jobs:
     - name: Login to Amazon ECR
       id: ecr-login
       uses: aws-actions/amazon-ecr-login@v2
+    - name: Debug Build Number
+      run: echo "Build Number is $BUILD_NUMBER"
     - name: Build and Push Docker image to ECR
       uses: docker/build-push-action@v6
       with:
