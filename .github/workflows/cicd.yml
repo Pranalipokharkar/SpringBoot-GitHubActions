@@ -109,8 +109,11 @@ jobs:
     - name: Login to Amazon ECR
       id: ecr-login
       uses: aws-actions/amazon-ecr-login@v2
-    - name: Debug Build Number
-      run: echo "Build Number is $BUILD_NUMBER"
+    - name: Generate Build Number
+      run: echo "BUILD_NUMBER=$(date +%s)" >> $GITHUB_ENV
+
+    - name: Ensure BUILD_NUMBER is set
+      run: echo "BUILD_NUMBER=${BUILD_NUMBER:-latest}" >> $GITHUB_ENV
     - name: Build and Push Docker image to ECR
       uses: docker/build-push-action@v6
       with:
